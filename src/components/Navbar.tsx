@@ -10,10 +10,12 @@ import SearchFillIcon from './ui/icons/SearchFillIcon';
 import NewIcon from './ui/icons/NewIcon';
 import NewFillIcon from './ui/icons/NewFillIcon';
 import ColorButton from './ui/ColorButton';
+import Avatar from './Avatar';
 
 export default function Header() {
   const pathName = usePathname();
   const { data: session } = useSession();
+  const user = session?.user;
   const navList = [
     {
       title: 'Home',
@@ -33,12 +35,6 @@ export default function Header() {
       clickedIcon: <NewFillIcon />,
       href: '/new',
     },
-    /* {
-      title: 'Signin',
-      icon: <button>Sign in</button>,
-      clickedIcon: <button>Sign in</button>,
-      href: '#',
-    }, */
   ];
 
   return (
@@ -55,15 +51,20 @@ export default function Header() {
               </Link>
             </li>
           ))}
-          {session ? (
-            <ColorButton
-              text='Sign out'
-              onClick={() => signOut()}
-              size='small'
-            />
-          ) : (
-            <ColorButton text='Sign in' onClick={() => signIn()} size='small' />
+          {user && (
+            <li>
+              <Link href={`/user/${user.username}`}>
+                <Avatar image={user.image} />
+              </Link>
+            </li>
           )}
+          <li>
+            {session ? (
+              <ColorButton text='Sign out' onClick={() => signOut()} />
+            ) : (
+              <ColorButton text='Sign in' onClick={() => signIn()} />
+            )}
+          </li>
         </ul>
       </nav>
     </div>
