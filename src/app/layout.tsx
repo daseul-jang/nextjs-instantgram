@@ -3,6 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
 import AuthContext from '@/context/AuthContext';
+import Sidebar from '@/components/Sidebar';
 
 const sans = Open_Sans({ subsets: ['latin'] });
 
@@ -23,7 +24,10 @@ export default function RootLayout({
           <header className='sticky top-0 bg-white z-10 border-b'>
             <Navbar />
           </header>
-          <main>{children}</main>
+          <main className='flex flex-row justify-around'>
+            {children}
+            <Sidebar />
+          </main>
         </AuthContext>
       </body>
     </html>
