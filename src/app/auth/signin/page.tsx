@@ -1,7 +1,7 @@
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import Signin from '@/components/Signin';
 import { getServerSession } from 'next-auth/next';
-import { getProviders, signIn } from 'next-auth/react';
+import { getProviders } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 
 type Props = {
