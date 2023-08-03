@@ -1,6 +1,3 @@
-'use client';
-
-import { useSession } from 'next-auth/react';
 import Avatar from './Avatar';
 import { User } from '@/model/user';
 
