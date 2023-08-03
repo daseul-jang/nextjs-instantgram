@@ -2,28 +2,30 @@
 
 import { useSession } from 'next-auth/react';
 import Avatar from './Avatar';
+import { User } from '@/model/user';
 
-export default function Sidebar() {
-  const { data: session } = useSession();
-  const user = session?.user;
+type Props = {
+  user: User;
+};
+
+export default function SideBar({ user: { name, username, image } }: Props) {
   return (
-    <section className='w-60'>
-      <div className='w-full flex flex-row justify-center items-center mt-10'>
-        <Avatar image={user?.image} size='big' gradient={false} />
-        <div className='flex flex-col mx-6'>
-          <p className='font-bold'>{user?.username}</p>
-          <p className='text-gray-500'>{user?.name}</p>
+    <>
+      <div className='flex items-center'>
+        {image && <Avatar image={image} />}
+        <div className='ml-4'>
+          <p className='font-bold'>{username}</p>
+          <p className='text-lg text-gray-500 leading-4'>{name}</p>
         </div>
       </div>
-      <div>
-        <p className='my-9'>
-          About · Help · Press · API · Jobs · Privacy · Terms · Location ·
-          Language
-        </p>
-        <p className='font-bold text-gray-600'>
-          @Copyright INSTANTGRAM from METAL
-        </p>
-      </div>
-    </section>
+
+      <p className='text-sm text-neutral-500 mt-8'>
+        About · Help · Press · API · Jobs · Privacy · Terms · Location ·
+        Language
+      </p>
+      <p className='font-bold text-sm mt-8 text-neutral-500'>
+        @Copyright INSTANTGRAM from METAL
+      </p>
+    </>
   );
 }
