@@ -3,7 +3,6 @@
 import { DetailUser } from '@/model/user';
 import { PropagateLoader } from 'react-spinners';
 import useSWR from 'swr';
-import user from '../../sanity-studio/schemas/user';
 import Link from 'next/link';
 import Avatar from './Avatar';
 import ScrollableBar from './ui/ScrollableBar';

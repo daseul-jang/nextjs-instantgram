@@ -4,7 +4,6 @@ import SideBar from '@/components/SideBar';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import { getServerSession } from 'next-auth/next';
 import { redirect } from 'next/navigation';
-import Image from 'next/image';
 
 export default async function HomePage() {
   const session = await getServerSession(authOptions);

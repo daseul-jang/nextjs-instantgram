@@ -1,13 +1,13 @@
 import { authOptions } from '../../auth/[...nextauth]/route';
 import { getServerSession } from 'next-auth/next';
 import { NextResponse, NextRequest } from 'next/server';
-import { getFollowingPostsOf, getPost } from '@/service/posts';
+import { getPost } from '@/service/posts';
 
 type Context = {
   params: { id: string };
 };
 
-export async function GET(req: NextRequest, context: Context) {
+export async function GET(_: NextRequest, context: Context) {
   const session = await getServerSession(authOptions);
   const user = session?.user;
 
