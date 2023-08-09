@@ -1,6 +1,6 @@
 'use client';
 
-import { ProfileUser } from '@/model/user';
+import { SearchUser } from '@/model/user';
 import { useState } from 'react';
 import useSWR from 'swr';
 import GridSpinner from './ui/GridSpinner';
@@ -14,7 +14,7 @@ export default function UserSearch() {
     data: users,
     isLoading: loading,
     error,
-  } = useSWR<ProfileUser[]>(`/api/search/${debounceSearch}`);
+  } = useSWR<SearchUser[]>(`/api/search/${debounceSearch}`);
 
   return (
     <section className='w-full max-w-2xl my-4 flex flex-col items-center'>
