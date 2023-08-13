@@ -3,6 +3,12 @@ import Signin from '@/components/Signin';
 import { getServerSession } from 'next-auth/next';
 import { getProviders } from 'next-auth/react';
 import { redirect } from 'next/navigation';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Signin',
+  description: 'Signup or Login to Instantgram',
+};
 
 type Props = {
   searchParams: {
