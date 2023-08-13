@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: 'Search users to follow',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default function SearchPage() {
   return <UserSearch />;
 }
