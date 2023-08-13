@@ -8,6 +8,16 @@ async function updateLike(id: string, like: boolean) {
   }).then((res) => res.json());
 }
 
+<<<<<<< HEAD
+=======
+async function updateLike(id: string, like: boolean) {
+  return fetch('/api/likes', {
+    method: 'PUT',
+    body: JSON.stringify({ id, like }),
+  }).then((res) => res.json());
+}
+
+>>>>>>> 0ce64be68d50fbb9de545929c1774542a30a8338
 export default function usePosts() {
   const {
     data: posts,
