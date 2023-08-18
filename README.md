@@ -1,3 +1,3 @@
-## InstantGranm
+## InstantGram
 Instagram clone coding
 
