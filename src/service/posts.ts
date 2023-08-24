@@ -32,7 +32,7 @@ export async function getPost(id: string) {
     "userImage": author->image,
     "image": photo,
     "likes": likes[]->username,
-    comments[]{comment, "username": author->username, "image": author->image},
+    comments[]{"text": comment, "username": author->username, "image": author->image},
     "id": _id,
     "createdAt": _createdAt
   }`
@@ -103,4 +103,21 @@ export async function dislikePost(postId: string, userId: string) {
     .patch(postId)
     .unset([`likes[_ref == "${userId}"]`])
     .commit();
+}
+
+export async function addComment(
+  postId: string,
+  userId: string,
+  comment: string
+) {
+  return client
+    .patch(postId)
+    .setIfMissing({ comments: [] })
+    .append('comments', [
+      {
+        comment,
+        author: { _ref: userId, _type: 'reference' },
+      },
+    ])
+    .commit({ autoGenerateArrayKeys: true });
 }
