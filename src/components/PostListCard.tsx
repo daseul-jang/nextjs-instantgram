@@ -2,7 +2,6 @@
 
 import { Comment, SimplePost } from '@/model/post';
 import Image from 'next/image';
-import CommentForm from './CommentForm';
 import ActionBar from './ActionBar';
 import { useState } from 'react';
 import ModalPotal from './ui/ModalPotal';
